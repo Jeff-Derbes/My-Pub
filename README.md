@@ -16,3 +16,9 @@ MyPub is a web application that lets you find new and tasty cocktail recipes. Cr
 - Save individual recipes to their favorites
 - Users can keep track of their ingredients and find recipes based on what they currently have available
 - Users can create their own custom recipes and share them on their profile
+
+## Database info
+
+- User Data
+- Custom recipes
+- User saved recipes
