@@ -31,7 +31,7 @@ const CocktailList = () => {
 
   return (
     <section className="section">
-      <h2 className="section-title">cocktails</h2>
+      <h2 className="section-title">Your Favorites</h2>
       <div className="cocktails-center">
         {favorites.map((item) => {
           return <Cocktail key={item.id} {...item} />;
