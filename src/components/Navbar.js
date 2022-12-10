@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import Logo from "../Logo.png";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
   return (
+      <>
     <nav className="navbar">
       <div className="nav-center">
         <Link to={"/"}>
@@ -31,6 +33,9 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+
+          <MobileNav />
+      </>
   );
 };
 
