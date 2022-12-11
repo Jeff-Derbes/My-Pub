@@ -11,6 +11,10 @@ const Navbar = () => {
         setActive(!isActive);
     };
 
+    const ToggleNav = () => {
+        setActive('false')
+    }
+
     return (
         <>
             <button className="nav-toggle" onClick={ToggleClass}
@@ -20,16 +24,16 @@ const Navbar = () => {
             <nav className={isActive ? "nav" : "nav hide-nav"}>
                 <ul className="nav__list">
                     <li className={"nav__list"}>
-                        <Link to={"/"} className={"nav__link"}>Home</Link>
-                        <Link to={"/about"} className={"nav__link"}>About</Link>
-                        {!user && <Link to={"/login"} className={"nav__link"}>Login</Link>}
+                        <Link to={"/"} className={"nav__link"} onClick={ToggleNav}>Home</Link>
+                        <Link to={"/about"} className={"nav__link"} onClick={ToggleNav}>About</Link>
+                        {!user && <Link to={"/login"} className={"nav__link"} onClick={ToggleNav}>Login</Link>}
                         {user && (
-                            <Link to={"/"} onClick={logout} className={"nav__link"}>
+                            <Link to={"/"} onClick={logout} className={"nav__link"} onClick={ToggleNav}>
                                 Logout
                             </Link>
                         )}
-                        {!user && <Link to="/signup" className={"nav__link"}>Register</Link>}
-                        {user && <Link to="/favorites" className={"nav__link"}>Favorites</Link>}
+                        {!user && <Link to="/signup" className={"nav__link"} onClick={ToggleNav}>Register</Link>}
+                        {user && <Link to="/favorites" className={"nav__link"} onClick={ToggleNav}>Favorites</Link>}
                     </li>
                 </ul>
             </nav>

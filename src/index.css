@@ -4,16 +4,16 @@ Variables
 ======
 */
 :root {
-    --primaryLightColor: #94d2bd;
-    --primaryColor: #0a9396;
-    --primaryDarkColor: #c02c03;
+    --primaryLightColor: #50d6be;
+    --primaryColor: #3b4252;
+    --primaryDarkColor: #232530;
     --mainWhite: #fff;
     --offWhite: #f7f7f7;
-    --mainBackground: #f1f5f8;
+    --mainBackground: #232731;
     --mainOverlay: rgba(35, 10, 36, 0.4);
     --mainBlack: #222;
-    --mainGrey: #ececec;
-    --darkGrey: #afafaf;
+    --mainGrey: #161b22;
+    --darkGrey: #232530;
     --mainRed: #bd0303;
     --mainTransition: all 0.3s linear;
     --mainSpacing: 0.3rem;
@@ -39,7 +39,7 @@ Global Styles
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: var(--mainBlack);
+    color: var(--mainWhite);
     background: var(--mainBackground);
     line-height: 1.4;
     font-size: 1rem;
@@ -84,7 +84,7 @@ Buttons
 .btn-primary {
     text-transform: uppercase;
     letter-spacing: var(--mainSpacing);
-    color: var(--primaryColor);
+    color: var(--mainWhite);
     border: 2px solid var(--primaryColor);
     padding: 0.45rem 0.8rem;
     display: inline-block;
@@ -96,8 +96,9 @@ Buttons
 }
 
 .btn:hover {
-    background: var(--primaryColor);
-    color: var(--mainWhite);
+    background: var(--primaryLightColor);
+    color: var(--primaryLightColor);
+    border: 1px solid var(--primaryLightColor);
 }
 
 .btn-white {
@@ -118,8 +119,8 @@ Buttons
 }
 
 .btn-primary:hover {
-    background: var(--primaryLightColor);
-    color: var(--primaryColor);
+    background: transparent;
+    color: var(--primaryLightColor);
 }
 
 .btn-block {
@@ -145,7 +146,7 @@ Navbar
 ======
 */
 .navbar {
-    background: var(--primaryColor);
+    background: var(--primaryLightColor);
     height: 5rem;
     display: flex;
     align-items: center;
@@ -177,11 +178,12 @@ Navbar
     font-size: 1.2rem;
     padding: 0.25rem 0.5rem;
     transition: var(--mainTransition);
-    color: white;
+    color: var(--mainBackground);
 }
 
 .nav-links a:hover {
-    color: #f9c74f;
+    transition: all 100ms;
+    border-bottom: 1px solid;
 }
 
 /*Mobile nav*/
@@ -198,7 +200,7 @@ Navbar
     transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
 }
 
-.hide-nav{
+.hide-nav {
     transform: unset;
 }
 
@@ -263,7 +265,7 @@ Navbar
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--mainGrey);
+    background: var(--mainBackground);
     width: 2em;
     height: 3px;
     border-radius: 1em;
@@ -291,18 +293,18 @@ Navbar
     color: #f9c74f;
 }
 
-@media(max-width: 732px){
-    .nav-links{
+@media (max-width: 732px) {
+    .nav-links {
         display: none;
     }
 
-    .hamburger{
+    .hamburger {
         display: block;
     }
 }
 
-@media(min-width: 732px){
-    .nav{
+@media (min-width: 732px) {
+    .nav {
         display: none;
     }
 }
@@ -403,6 +405,7 @@ Cocktail
 
 .cocktail-footer {
     padding: 1.5rem;
+    background-color: var(--mainGrey);
 }
 
 .cocktail-footer h3,
@@ -416,7 +419,7 @@ Cocktail
 }
 
 .cocktail-footer p {
-    color: var(--darkGrey);
+    color: var(--primaryLightColor);
     margin-bottom: 0.5rem;
 }
 
@@ -434,7 +437,7 @@ Form
     width: var(--smallWidth);
     margin: 0 auto;
     max-width: var(--maxWidth);
-    background: var(--mainWhite);
+    background: var(--primaryColor);
     padding: 2rem 2.5rem;
     text-transform: capitalize;
     border-radius: var(--mainBorderRadius);
@@ -446,7 +449,7 @@ Form
     margin-bottom: 1.25rem;
     font-weight: bold;
     letter-spacing: 0.25rem;
-    color: var(--primaryColor);
+    color: var(--mainWhite);
 }
 
 .form-control input {
@@ -455,6 +458,7 @@ Form
     border-color: transparent;
     background: var(--mainBackground);
     border-radius: var(--mainBorderRadius);
+    color: var(--mainWhite);
     padding: 0.5rem;
     font-size: 1.2rem;
 }
@@ -494,7 +498,7 @@ Cocktail
     background: var(--primaryLightColor);
     padding: 0.25rem 0.5rem;
     border-radius: var(--mainBorderRadius);
-    color: var(--primaryColor);
+    color: var(--mainBackground);
 }
 
 .drink-info {
@@ -592,6 +596,11 @@ Cocktail
     justify-content: center;
 }
 
+.login
+h2{
+    color: var(--primaryLightColor);
+}
+
 .login__container {
     display: flex;
     flex-direction: column;
@@ -601,10 +610,21 @@ Cocktail
     border-radius: 4%;
 }
 
+.login__container
+label
+span{
+    color: var(--mainWhite);
+}
+.login__container
+input {
+    color: var(--mainWhite);
+    background-color: var(--primaryDarkColor);
+}
+
 .login span {
     display: block;
     padding-bottom: 7px;
-    color: white;
+    color: var(--primaryLightColor)
 }
 
 .login h2 {
@@ -615,18 +635,28 @@ Cocktail
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
+    border-radius: 3px;
 }
 
 .login__btn {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
+    margin-top: 20px;
     border: none;
-
-    color: white;
-    background-color: var(--primaryLightColor);
+    color: var(--mainWhite);
+    background-color: var(--mainBackground);
     cursor: pointer;
+    transition: all 200ms;
+    border-radius: 3px;
 }
+
+.login__btn:hover {
+    color: var(--primaryLightColor);
+    background: transparent;
+    border: 1px solid var(--primaryLightColor);
+}
+
 
 .login__google {
     background-color: #4285f4;
